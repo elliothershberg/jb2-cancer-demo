@@ -20,7 +20,8 @@ const useStyles = makeStyles(theme => ({
     background: '#0d233f',
   },
   paperBackground: {
-    maxWidth: '1200px',
+    maxWidth: '800px',
+    width: '90%',
     margin: '15px auto',
     padding: 15,
   },
