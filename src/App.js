@@ -92,7 +92,7 @@ function Introduction() {
           core goals has been to develop new <strong>workflows</strong> and{' '}
           <strong>views</strong> to help researchers derive insights ranging
           from the genome scale to the nucleotide scale using diverse sequencing
-          technologies.
+          technologies and data formats.
         </p>
         <p>
           This demo will use a variety of new powerful features of JBrowse 2 to
