@@ -44,7 +44,14 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 8,
   },
   figure: {
-    width: '90%',
+    width: '100%',
+  },
+  clickableImage: {
+    border: '2px solid #0d233f',
+    display: 'flex',
+    alignContent: 'center',
+    borderRadius: 4,
+    padding: 5,
   },
 }))
 
@@ -121,8 +128,12 @@ function Introduction() {
           at Johns Hopkins University. You can follow along by using links below
           which provide access to a demo instance of JBrowse 2 with the
           necessary loaded data, as well as a list of data URLs that you can
-          load on your own. Additionally, every image can be clicked on to open
-          the corresponding demo in JBrowse 2.
+          load on your own. Additionally,{' '}
+          <strong>
+            every image with a blue border can be clicked on to open the
+            corresponding demo in JBrowse 2
+          </strong>
+          .
         </p>
         <p className={classes.linkFooter}>
           <a
@@ -188,17 +199,20 @@ function GlobalView() {
           </a>{' '}
           called from PacBio long-reads data using Sniffles:
         </p>
-        <a
-          href="https://s3.amazonaws.com/jbrowse.org/code/jb2/1322_cancer_genome_demo/index.html?config=test_data%2Fconfig_cancer.json&session=share-tChX293HVJ&password=OX04k"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            className={classes.figure}
-            src="skbr3-sv-inspector.png"
-            alt="JBrowse 2 SV inspector with SKBR3 data"
-          />
-        </a>
+        <div className={classes.clickableImage}>
+          <a
+            href="https://s3.amazonaws.com/jbrowse.org/code/jb2/1322_cancer_genome_demo/index.html?config=test_data%2Fconfig_cancer.json&session=share-tChX293HVJ&password=OX04k"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              className={classes.figure}
+              src="skbr3-sv-inspector.png"
+              alt="JBrowse 2 SV inspector with SKBR3 data"
+            />
+          </a>
+        </div>
+
         <p>
           Wow! With this view, it is visually apparent that SKBR3 has a
           tremendous amount of structural variation. Chromosome 8 contains the
@@ -208,17 +222,19 @@ function GlobalView() {
           on the column header.) The filter will cause the Circos view to
           dynamically update:
         </p>
-        <a
-          href="https://s3.amazonaws.com/jbrowse.org/code/jb2/1322_cancer_genome_demo/index.html?config=test_data%2Fconfig_cancer.json&session=share-TovuCfqHzh&password=HniKM"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            className={classes.figure}
-            src="skbr3-sv-inspector-chr8.png"
-            alt="JBrowse 2 SV inspector with SKBR3 data for chr8"
-          />
-        </a>
+        <div className={classes.clickableImage}>
+          <a
+            href="https://s3.amazonaws.com/jbrowse.org/code/jb2/1322_cancer_genome_demo/index.html?config=test_data%2Fconfig_cancer.json&session=share-TovuCfqHzh&password=HniKM"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              className={classes.figure}
+              src="skbr3-sv-inspector-chr8.png"
+              alt="JBrowse 2 SV inspector with SKBR3 data for chr8"
+            />
+          </a>
+        </div>
         <p>
           Using the SV inspector, we were able to visually assess structural
           variation on the genome scale. In the next section, we will explore
