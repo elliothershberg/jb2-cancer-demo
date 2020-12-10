@@ -185,8 +185,8 @@ function GlobalView() {
         </p>
         <ol>
           <li>
-            A Circos view which draws arcs connecting structural variants across
-            chromosomes
+            A Circular view which draws arcs connecting structural variants
+            across chromosomes
           </li>
           <li>
             A Spreadsheet view which can be using to dynamically sort and filter
@@ -224,7 +224,7 @@ function GlobalView() {
           largest amount of variation within the SKBR3 genome. The spreadsheet
           can be used to create a filter for all translocations originating from
           chromosome 8. (The column filter controls can be accessed by clicking
-          on the column header.) The filter will cause the Circos view to
+          on the column header.) The filter will cause the Circular view to
           dynamically update:
         </p>
         <ClickableImage
