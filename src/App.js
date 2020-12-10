@@ -37,6 +37,15 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     lineHeight: 2,
   },
+  navPath: {
+    backgroundColor: '#0d233f',
+    color: '#fff',
+    padding: 5,
+    borderRadius: 8,
+  },
+  figure: {
+    width: '90%',
+  },
 }))
 
 function Header() {
@@ -90,7 +99,7 @@ function Introduction() {
           of previously inaccessible aspects of cancer genome biology. However,
           these technologies pose new challenges for genomic analysis and
           visualization software. During the development of JBrowse 2, one our
-          core goals has been to develop new <strong>workflows</strong> and{' '}
+          core goals has been to develop new workflows and{' '}
           <strong>views</strong> to help researchers derive insights ranging
           from the genome scale to the nucleotide scale using diverse sequencing
           technologies and data formats.
@@ -111,8 +120,9 @@ function Introduction() {
           </a>{' '}
           at Johns Hopkins University. You can follow along by using links below
           which provide access to a demo instance of JBrowse 2 with the
-          necessary loaded data, as well as a list of data URLs that you can load
-          on your own.
+          necessary loaded data, as well as a list of data URLs that you can
+          load on your own. Additionally, every image can be clicked on to open
+          the corresponding demo in JBrowse 2.
         </p>
         <p className={classes.linkFooter}>
           <a
@@ -136,6 +146,90 @@ function Introduction() {
   )
 }
 
+function GlobalView() {
+  const classes = useStyles()
+  return (
+    <div>
+      <Typography className={classes.sectionHeader} variant="h3">
+        A Global View
+      </Typography>
+      <div className={classes.sectionBody}>
+        <p>
+          One of the core benefits of the development of long-read sequencing
+          technologies has been the greatly increased accuracy and resolution of
+          detecting structural variation. In order to accommodate the analysis
+          of structural variation, we have developed the SV Inspector. The SV
+          inspector is a combination of two <strong>views</strong>:
+        </p>
+        <ol>
+          <li>
+            A Circos view which draws arcs connecting structural variants across
+            chromosomes
+          </li>
+          <li>
+            A Spreadsheet view which can be using to dynamically sort and filter
+            the data set being visualized
+          </li>
+        </ol>
+        <p>
+          The SV inspector can be opened from the menu:{' '}
+          <strong className={classes.navPath}>
+            File {'-->'} Add {'-->'} SV Inspector
+          </strong>
+        </p>
+        <p>
+          Here is the SV Inspector loaded with{' '}
+          <a
+            href="https://s3.amazonaws.com/jbrowse.org/genomes/hg19/skbr3/reads_lr_skbr3.fa_ngmlr-0.2.3_mapped.bam.sniffles1kb_auto_l8_s5_noalt.new.vcf"
+            target="_blank"
+            rel="noreferrer"
+          >
+            SKBR3 Variants
+          </a>{' '}
+          called from PacBio long-reads data using Sniffles:
+        </p>
+        <a
+          href="https://s3.amazonaws.com/jbrowse.org/code/jb2/1322_cancer_genome_demo/index.html?config=test_data%2Fconfig_cancer.json&session=share-tChX293HVJ&password=OX04k"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img
+            className={classes.figure}
+            src="skbr3-sv-inspector.png"
+            alt="JBrowse 2 SV inspector with SKBR3 data"
+          />
+        </a>
+        <p>
+          Wow! With this view, it is visually apparent that SKBR3 has a
+          tremendous amount of structural variation. Chromosome 8 contains the
+          largest amount of variation within the SKBR3 genome. The spreadsheet
+          can be used to create a filter for all translocations originating from
+          chromosome 8. (The column filter controls can be accessed by clicking
+          on the column header.) The filter will cause the Circos view to
+          dynamically update:
+        </p>
+        <a
+          href="https://s3.amazonaws.com/jbrowse.org/code/jb2/1322_cancer_genome_demo/index.html?config=test_data%2Fconfig_cancer.json&session=share-TovuCfqHzh&password=HniKM"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img
+            className={classes.figure}
+            src="skbr3-sv-inspector-chr8.png"
+            alt="JBrowse 2 SV inspector with SKBR3 data for chr8"
+          />
+        </a>
+        <p>
+          Using the SV inspector, we were able to visually assess structural
+          variation on the genome scale. In the next section, we will explore
+          new <strong>views</strong> that can help to further analyze the
+          structural variation taking place on chromosome 8.
+        </p>
+      </div>
+    </div>
+  )
+}
+
 function App() {
   const classes = useStyles()
   return (
@@ -143,6 +237,7 @@ function App() {
       <Header />
       <Paper className={classes.paperBackground} elevation={3}>
         <Introduction />
+        <GlobalView />
       </Paper>
     </div>
   )
