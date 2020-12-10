@@ -157,6 +157,17 @@ function Introduction() {
   )
 }
 
+function ClickableImage(props) {
+  const classes = useStyles()
+  return (
+    <div className={classes.clickableImage}>
+      <a href={props.link} target="_blank" rel="noreferrer">
+        <img className={classes.figure} src={props.imgSrc} alt={props.imgAlt} />
+      </a>
+    </div>
+  )
+}
+
 function GlobalView() {
   const classes = useStyles()
   return (
@@ -199,17 +210,11 @@ function GlobalView() {
           </a>{' '}
           called from PacBio long-reads data using Sniffles:
         </p>
-        <div className={classes.clickableImage}>
-          <a
-            href="https://s3.amazonaws.com/jbrowse.org/code/jb2/1322_cancer_genome_demo/index.html?config=test_data%2Fconfig_cancer.json&session=share-tChX293HVJ&password=OX04k"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              className={classes.figure}
-              src="skbr3-sv-inspector.png"
-              alt="JBrowse 2 SV inspector with SKBR3 data"
-            />
+        <ClickableImage
+          link="https://s3.amazonaws.com/jbrowse.org/code/jb2/1322_cancer_genome_demo/index.html?config=test_data%2Fconfig_cancer.json&session=share-tChX293HVJ&password=OX04k"
+          imgSrc="skbr3-sv-inspector.png"
+          imgAlt="JBrowse 2 SV inspector with SKBR3 data"
+        />
           </a>
         </div>
 
@@ -222,17 +227,11 @@ function GlobalView() {
           on the column header.) The filter will cause the Circos view to
           dynamically update:
         </p>
-        <div className={classes.clickableImage}>
-          <a
-            href="https://s3.amazonaws.com/jbrowse.org/code/jb2/1322_cancer_genome_demo/index.html?config=test_data%2Fconfig_cancer.json&session=share-TovuCfqHzh&password=HniKM"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              className={classes.figure}
-              src="skbr3-sv-inspector-chr8.png"
-              alt="JBrowse 2 SV inspector with SKBR3 data for chr8"
-            />
+        <ClickableImage
+          link="https://s3.amazonaws.com/jbrowse.org/code/jb2/1322_cancer_genome_demo/index.html?config=test_data%2Fconfig_cancer.json&session=share-TovuCfqHzh&password=HniKM"
+          imgSrc="skbr3-sv-inspector-chr8.png"
+          imgAlt="JBrowse 2 SV inspector with SKBR3 data for chr8"
+        />
           </a>
         </div>
         <p>
