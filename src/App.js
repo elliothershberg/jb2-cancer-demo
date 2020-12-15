@@ -53,6 +53,12 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 4,
     padding: 5,
   },
+  unclickableImage: {
+    display: 'flex',
+    justifyContent: 'center',
+    borderRadius: 4,
+    padding: 5,
+  },
 }))
 
 function Header() {
@@ -168,6 +174,15 @@ function ClickableImage(props) {
   )
 }
 
+function UnclickableImage(props) {
+  const classes = useStyles()
+  return (
+    <div className={classes.unclickableImage}>
+      <img className={classes.figure} src={props.imgSrc} alt={props.imgAlt} />
+    </div>
+  )
+}
+
 function GlobalView() {
   const classes = useStyles()
   return (
@@ -215,9 +230,6 @@ function GlobalView() {
           imgSrc="skbr3-sv-inspector.png"
           imgAlt="JBrowse 2 SV inspector with SKBR3 data"
         />
-          </a>
-        </div>
-
         <p>
           Wow! With this view, it is visually apparent that SKBR3 has a
           tremendous amount of structural variation. Chromosome 8 contains the
@@ -232,13 +244,98 @@ function GlobalView() {
           imgSrc="skbr3-sv-inspector-chr8.png"
           imgAlt="JBrowse 2 SV inspector with SKBR3 data for chr8"
         />
-          </a>
-        </div>
         <p>
           Using the SV inspector, we were able to visually assess structural
           variation on the genome scale. In the next section, we will explore
           new <strong>views</strong> that can help to further analyze the
           structural variation taking place on chromosome 8.
+        </p>
+      </div>
+    </div>
+  )
+}
+
+function DrillingDown() {
+  const classes = useStyles()
+  // 125027 split detail
+  return (
+    <div>
+      <Typography className={classes.sectionHeader} variant="h3">
+        Drilling Down
+      </Typography>
+      <div className={classes.sectionBody}>
+        <p>
+          While the genome scale <strong>view</strong> of structural variation
+          is informative, it is time to drill down to higher resolution, and
+          investigate one of these translocations. Clicking on one of the arcs
+          on the Circular <strong>view</strong> will open up the split detail{' '}
+          <strong>view</strong>:
+        </p>
+        <ClickableImage
+          link="https://s3.amazonaws.com/jbrowse.org/code/jb2/1322_cancer_genome_demo/?config=test_data%2Fconfig_cancer.json&session=share-4j_j0evV7V&password=0G6Mx"
+          imgSrc="skbr3-split-detail.png"
+          imgAlt="SKBR3 chrom8 chrom17 split detail view"
+        />
+        <p>
+          With this <strong>view</strong> open, next we can toggle linked
+          scrolls and behavior across <strong>views</strong> using the button in
+          the top left corner, and then open the track for the PacBio sequencing
+          reads (splitters only):
+        </p>
+        <ClickableImage
+          link="https://s3.amazonaws.com/jbrowse.org/code/jb2/1322_cancer_genome_demo/?config=test_data%2Fconfig_cancer.json&session=share-kxgcLjxfgE&password=l7tXf"
+          imgSrc="skbr3-split-pacbio.png"
+          imgAlt="SKBR3 split detail view with PacBio track"
+        />
+        <p>
+          The arcs connect reads across breakpoints. Scrolling down, there is an
+          interesting read right by the translocation point that also maps to
+          chromosome 17. Clicking on it, the read attributes show that this read
+          had supplementary alignments (SA) on chromosome 17. Right clicking on
+          the read gives several options:
+        </p>
+        <UnclickableImage
+          imgSrc="skbr3-read-options.png"
+          imgAlt="the options for an SKBR3 PacBio read"
+        />
+        <p>
+          Clicking on the "linear read vs. ref" option will open the following{' '}
+          <strong>view</strong>:
+        </p>
+        <ClickableImage
+          link="https://s3.amazonaws.com/jbrowse.org/code/jb2/1322_cancer_genome_demo/index.html?config=test_data%2Fconfig_cancer.json&session=share-xA5W0bzORh&password=55UF7"
+          imgSrc="skbr3-linear-vs-ref.png"
+          imgAlt="A linear vs. ref view of a SKBR3 PacBio read"
+        />
+        {/* https://en.wikipedia.org/wiki/GSDMB */}
+        <p>
+          This <strong>view</strong> shows where the read maps onto the
+          reference genome. By zooming in and turning on the Gencode annotation
+          track, we can see that the read maps to both GSDMB on chromosome 17,
+          as well as another gene on chromosome 8:
+        </p>
+        <ClickableImage
+          link="https://s3.amazonaws.com/jbrowse.org/code/jb2/1322_cancer_genome_demo/?config=test_data%2Fconfig_cancer.json&session=share-w5e3cjDnVr&password=Fa4kO"
+          imgSrc="skbr3-gene-fusion.png"
+          imgAlt="A gene fusion between chrom17 and chrom8 in an skbr3 pacbio read"
+        />
+        <p>
+          Clicking on the gencode annotation on chromosome 8, we see that it is
+          TATDN1:
+        </p>
+        <div className={classes.unclickableImage}>
+          <img
+            style={{ width: '40%' }}
+            src="skbr3-TATDN1-info.png"
+            alt="skbr3 TATDN1 info"
+          />
+        </div>
+        <p>
+          Wow! Simply by performing visual analysis and leveraging the
+          integration between <strong>views</strong> in JBrowse 2, we have honed
+          in on an intuitive visualization of one of the reads supporting the
+          GSDMB-TATDN1 gene fusion that has been observed in the SKBR3 cell
+          line.
         </p>
       </div>
     </div>
@@ -253,6 +350,7 @@ function App() {
       <Paper className={classes.paperBackground} elevation={3}>
         <Introduction />
         <GlobalView />
+        <DrillingDown />
       </Paper>
     </div>
   )
