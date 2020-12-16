@@ -5,6 +5,8 @@ import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
 
+import LinearView from './LinearView'
+
 const useStyles = makeStyles(theme => ({
   icon: {
     width: 48,
@@ -381,6 +383,50 @@ function Sharing() {
   )
 }
 
+function Embed() {
+  const classes = useStyles()
+  return (
+    <div>
+      <Typography className={classes.sectionHeader} variant="h3">
+        Embed JBrowse 2 in Your App
+      </Typography>
+      <div className={classes.sectionBody}>
+        <p>
+          In contrast to JBrowse 1, JBrowse 2 is designed to have many{' '}
+          <strong>views</strong> and features that work together as a robust,
+          standalone web application for genomic visualization and analysis.
+          However, it is still completely possible to embed JBrowse 2 in your
+          own application. We have published a{' '}
+          <a
+            href="https://github.com/GMOD/jbrowse-components/tree/master/products/jbrowse-react-linear-genome-view"
+            target="_blank"
+            rel="noreferrer"
+          >
+            linear genome <strong>view</strong> React component
+          </a>{' '}
+          which can be configured and embedded directly into a web page. In
+          fact, here is what it looks like when configured with SKBR3 data:
+        </p>
+        {/* <LinearView /> */}
+        <p>
+          Importantly, you don't have to be a React developer to add this
+          component to your page. You can{' '}
+          <a
+            href="https://reactjs.org/docs/add-react-to-a-website.html#add-react-in-one-minute"
+            target="_blank"
+            rel="noreferrer"
+          >
+            add React in one minute
+          </a>{' '}
+          to your website, by adding the necessary CDNs along with the JBrowse
+          component. We can't wait to see the awesome ways you use this
+          component!
+        </p>
+      </div>
+    </div>
+  )
+}
+
 function App() {
   const classes = useStyles()
   return (
@@ -391,6 +437,7 @@ function App() {
         <GlobalView />
         <DrillingDown />
         <Sharing />
+        <Embed />
       </Paper>
     </div>
   )
