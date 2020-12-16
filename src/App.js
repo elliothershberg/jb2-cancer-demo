@@ -342,6 +342,45 @@ function DrillingDown() {
   )
 }
 
+function Sharing() {
+  const classes = useStyles()
+  return (
+    <div>
+      <Typography className={classes.sectionHeader} variant="h3">
+        Sharing With Collaborators
+      </Typography>
+      <div className={classes.sectionBody}>
+        <p>
+          When you discover an important or interest aspect of your data, it is
+          important to be able to quickly and easily share what you have found
+          with your collaborators. An exciting new aspect of JBrowse 2 is that
+          you can easily share the entire state of your current session
+          including data or tracks you may have loaded with the click of a
+          button. Clicking the "Share" button in the top center of JBrowse 2
+          will open the following menu:
+        </p>
+        <UnclickableImage
+          imgSrc="jbrowse-share.png"
+          imgAlt="the form to share a JBrowse 2 session"
+        />
+        <p>
+          Behind the scenes, this creates an end-to-end encrypted copy of your
+          session that only people with the generated link will have access to.
+          This link can be copied to your clipboard, and sent to collaborators.
+          They will be able to easily load up the same session in their browser
+          by accessing the link.
+        </p>
+        {/* add "click to tweet" link here */}
+        <p>
+          To give it a spin, try looking for a <strong>view</strong> that you
+          find exciting, and share it with us on Twitter! We would love to see
+          your awesome findings!
+        </p>
+      </div>
+    </div>
+  )
+}
+
 function App() {
   const classes = useStyles()
   return (
@@ -351,6 +390,7 @@ function App() {
         <Introduction />
         <GlobalView />
         <DrillingDown />
+        <Sharing />
       </Paper>
     </div>
   )
