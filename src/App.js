@@ -427,6 +427,40 @@ function Embed() {
   )
 }
 
+function Conclusion() {
+  const classes = useStyles()
+  return (
+    <div>
+      <Typography className={classes.sectionHeader} variant="h3">
+        Conclusion
+      </Typography>
+      <div className={classes.sectionBody}>
+        <p>
+          We have reached the end of this JBrowse 2 demo for cancer genomics!
+          Hopefully this has given a taste of how JBrowse 2 can handle a wide
+          variety of data types and formats, and provides powerful{' '}
+          <strong>views</strong> that can connect disparate information together
+          coherently to provide insight. We think that this is one of the things
+          that makes JBrowse 2 a really special platform for genomics
+          visualization and analysis.
+        </p>
+        <p>
+          If you have questions or ideas about how to use JBrowse 2, please get
+          in touch with the developers on our{' '}
+          <a
+            href="https://gitter.im/GMOD/jbrowse2"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Gitter channel.
+          </a>
+        </p>
+        <p style={{textAlign: 'center'}}>🧬 Happy genome browsing! 🧬</p>
+      </div>
+    </div>
+  )
+}
+
 function App() {
   const classes = useStyles()
   return (
@@ -438,6 +472,7 @@ function App() {
         <DrillingDown />
         <Sharing />
         <Embed />
+        <Conclusion />
       </Paper>
     </div>
   )
