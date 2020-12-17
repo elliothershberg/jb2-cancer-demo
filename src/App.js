@@ -9,7 +9,8 @@ import AccordionSummary from '@material-ui/core/AccordionSummary'
 import AccordionDetails from '@material-ui/core/AccordionDetails'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
-// import LinearView from './LinearView'
+import LinearView from './LinearView'
+// import DrawerToc from './DrawerToc'
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -449,9 +450,9 @@ function Embed() {
               linear genome <strong>view</strong> React component
             </a>{' '}
             which can be configured and embedded directly into a web page. In
-            fact, here is what it looks like when configured with SKBR3 data:
+            fact, you can see what it looks like when configured with SKBR3 data
+            directly below this section.
           </p>
-          {/* <LinearView /> */}
           <p>
             Importantly, you don't have to be a React developer to add this
             component to your page. You can{' '}
@@ -507,7 +508,9 @@ function Conclusion() {
               Gitter channel.
             </a>
           </p>
-          <p style={{ textAlign: 'center' }}>🧬 Happy genome browsing! 🧬</p>
+          <p style={{ textAlign: 'center', marginTop: '3em' }}>
+            🧬 Happy genome browsing! 🧬
+          </p>
         </div>
       </AccordionDetails>
     </Accordion>
@@ -519,12 +522,14 @@ function App() {
   return (
     <div>
       <Header />
+      {/* <DrawerToc /> */}
       <Paper className={classes.paperBackground} elevation={3}>
         <Introduction />
         <GlobalView />
         <DrillingDown />
         <Sharing />
         <Embed />
+        <LinearView />
         <Conclusion />
       </Paper>
     </div>

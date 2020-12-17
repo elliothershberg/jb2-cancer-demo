@@ -10,7 +10,7 @@ import {
 const theme = createJBrowseTheme()
 
 const assembly = {
-  name: 'GRCh37',
+  name: 'hg19',
   sequence: {
     type: 'ReferenceSequenceTrack',
     trackId: 'GRCh37-ReferenceSequenceTrack',
@@ -27,13 +27,13 @@ const assembly = {
       },
     },
   },
-  aliases: ['hg19'],
+  aliases: ['GRCh37'],
   refNameAliases: {
     adapter: {
       type: 'RefNameAliasAdapter',
       location: {
         uri:
-          'https://s3.amazonaws.com/jbrowse.org/genomes/GRCh38/hg19_aliases.txt',
+          'https://s3.amazonaws.com/jbrowse.org/genomes/hg19/hg19_aliases.txt',
       },
     },
   },
@@ -64,6 +64,24 @@ const tracks = [
       },
     },
   },
+  // {
+  //   "type": "AlignmentsTrack",
+  //   "trackId": "ngmlr",
+  //   "name": "SKBR3 pacbio (NGMLR)",
+  //   "assemblyNames": ["hg19"],
+  //   "category": ["SKBR3"],
+  //   "adapter": {
+  //     "type": "BamAdapter",
+  //     "bamLocation": {
+  //       "uri": "https://s3.amazonaws.com/jbrowse.org/genomes/hg19/reads_lr_skbr3.fa_ngmlr-0.2.3_mapped.bam"
+  //     },
+  //     "index": {
+  //       "location": {
+  //         "uri": "https://s3.amazonaws.com/jbrowse.org/genomes/hg19/reads_lr_skbr3.fa_ngmlr-0.2.3_mapped.bam.bai"
+  //       }
+  //     }
+  //   }
+  // },
 ]
 
 const defaultSession = {
@@ -83,16 +101,16 @@ const defaultSession = {
           },
         ],
       },
-      {
-        type: 'FeatureTrack',
-        configuration: 'ncbi_refseq_109_hg19',
-        displays: [
-          {
-            type: 'LinearBasicDisplay',
-            configuration: 'ncbi_refseq_109_hg19-LinearBasicDisplay',
-          },
-        ],
-      },
+      // {
+      //   type: 'FeatureTrack',
+      //   configuration: 'ncbi_gff_hg19',
+      //   displays: [
+      //     {
+      //       type: 'LinearBasicDisplay',
+      //       configuration: 'ncbi_gff_hg19-LinearBasicDisplay',
+      //     },
+      //   ],
+      // },
     ],
   },
 }
