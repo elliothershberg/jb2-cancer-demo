@@ -8,9 +8,10 @@ import Accordion from '@material-ui/core/Accordion'
 import AccordionSummary from '@material-ui/core/AccordionSummary'
 import AccordionDetails from '@material-ui/core/AccordionDetails'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import LinkIcon from '@material-ui/icons/Link'
 
 import LinearView from './LinearView'
-// import DrawerToc from './DrawerToc'
+import DrawerToc from './DrawerToc'
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -66,6 +67,7 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 4,
     padding: 5,
   },
+  anchor: {},
 }))
 
 function Header() {
@@ -91,6 +93,9 @@ function Introduction() {
         aria-controls="introduction-content"
         id="introduction-header"
       >
+        <a className={classes.anchor} href="#introduction" name="introduction">
+          <LinkIcon />
+        </a>
         <Typography className={classes.sectionHeader} variant="h3">
           Introduction
         </Typography>
@@ -207,6 +212,9 @@ function GlobalView() {
         aria-controls="introduction-content"
         id="introduction-header"
       >
+        <a className={classes.anchor} href="#global-view" name="global-view">
+          <LinkIcon />
+        </a>
         <Typography className={classes.sectionHeader} variant="h3">
           A Global View
         </Typography>
@@ -289,6 +297,9 @@ function DrillingDown() {
         aria-controls="introduction-content"
         id="introduction-header"
       >
+        <a className={classes.anchor} href="#drilling-down" name="drilling-down">
+          <LinkIcon />
+        </a>
         <Typography className={classes.sectionHeader} variant="h3">
           Drilling Down
         </Typography>
@@ -383,6 +394,9 @@ function Sharing() {
         aria-controls="introduction-content"
         id="introduction-header"
       >
+        <a className={classes.anchor} href="#sharing" name="sharing">
+          <LinkIcon />
+        </a>
         <Typography className={classes.sectionHeader} variant="h3">
           Sharing With Collaborators
         </Typography>
@@ -430,6 +444,9 @@ function Embed() {
         aria-controls="introduction-content"
         id="introduction-header"
       >
+        <a className={classes.anchor} href="#embed" name="embed">
+          <LinkIcon />
+        </a>
         <Typography className={classes.sectionHeader} variant="h3">
           Embed JBrowse 2 in Your App
         </Typography>
@@ -482,6 +499,9 @@ function Conclusion() {
         aria-controls="introduction-content"
         id="introduction-header"
       >
+        <a className={classes.anchor} href="#conclusion" name="conclusion">
+          <LinkIcon />
+        </a>
         <Typography className={classes.sectionHeader} variant="h3">
           Conclusion
         </Typography>
@@ -522,7 +542,7 @@ function App() {
   return (
     <div>
       <Header />
-      {/* <DrawerToc /> */}
+      <DrawerToc />
       <Paper className={classes.paperBackground} elevation={3}>
         <Introduction />
         <GlobalView />
