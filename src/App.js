@@ -84,7 +84,7 @@ function Header() {
 function Introduction() {
   const classes = useStyles()
   return (
-    <Accordion defaultExpanded="true">
+    <Accordion defaultExpanded={true}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="introduction-content"
@@ -200,7 +200,7 @@ function UnclickableImage(props) {
 function GlobalView() {
   const classes = useStyles()
   return (
-    <Accordion defaultExpanded="true">
+    <Accordion defaultExpanded={true}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="introduction-content"
@@ -282,7 +282,7 @@ function DrillingDown() {
   const classes = useStyles()
   // 125027 split detail
   return (
-    <Accordion defaultExpanded="true">
+    <Accordion defaultExpanded={true}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="introduction-content"
@@ -376,7 +376,7 @@ function DrillingDown() {
 function Sharing() {
   const classes = useStyles()
   return (
-    <Accordion defaultExpanded="true">
+    <Accordion defaultExpanded={true}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="introduction-content"
@@ -423,7 +423,7 @@ function Sharing() {
 function Embed() {
   const classes = useStyles()
   return (
-    <Accordion defaultExpanded="true">
+    <Accordion defaultExpanded={true}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="introduction-content"
@@ -475,7 +475,7 @@ function Embed() {
 function Conclusion() {
   const classes = useStyles()
   return (
-    <Accordion defaultExpanded="true">
+    <Accordion defaultExpanded={true}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="introduction-content"
