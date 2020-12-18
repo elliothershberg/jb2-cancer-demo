@@ -17,13 +17,18 @@ const useStyles = makeStyles({
   drawerIcon: {
     fontSize: '2em',
   },
+  '@media (max-width: 650px)': {
+    drawerButton: {
+      display: 'none',
+    },
+  },
   list: {
     width: 250,
     padding: 12,
   },
   listHeader: {
     textAlign: 'center',
-  }
+  },
 })
 
 export default function TemporaryDrawer() {
@@ -54,12 +59,36 @@ export default function TemporaryDrawer() {
       <Drawer open={open} onClose={toggleDrawer(false)}>
         <List className={classes.list}>
           <h2 className={classes.listHeader}>Table of Contents</h2>
-          <ListItem><a href="#introduction" onClick={toggleDrawer(false)}>Introduction</a></ListItem>
-          <ListItem><a href="#global-view" onClick={toggleDrawer(false)}>A Global View</a></ListItem>
-          <ListItem><a href="#drilling-down" onClick={toggleDrawer(false)}>Drilling Down</a></ListItem>
-          <ListItem><a href="#sharing" onClick={toggleDrawer(false)}>Sharing With Collaborators</a></ListItem>
-          <ListItem><a href="#embed" onClick={toggleDrawer(false)}>Embed JBrowse 2 in Your App</a></ListItem>
-          <ListItem><a href="#conclusion" onClick={toggleDrawer(false)}>Conclusion</a></ListItem>
+          <ListItem>
+            <a href="#introduction" onClick={toggleDrawer(false)}>
+              Introduction
+            </a>
+          </ListItem>
+          <ListItem>
+            <a href="#global-view" onClick={toggleDrawer(false)}>
+              A Global View
+            </a>
+          </ListItem>
+          <ListItem>
+            <a href="#drilling-down" onClick={toggleDrawer(false)}>
+              Drilling Down
+            </a>
+          </ListItem>
+          <ListItem>
+            <a href="#sharing" onClick={toggleDrawer(false)}>
+              Sharing With Collaborators
+            </a>
+          </ListItem>
+          <ListItem>
+            <a href="#embed" onClick={toggleDrawer(false)}>
+              Embed JBrowse 2 in Your App
+            </a>
+          </ListItem>
+          <ListItem>
+            <a href="#conclusion" onClick={toggleDrawer(false)}>
+              Conclusion
+            </a>
+          </ListItem>
         </List>
       </Drawer>
     </>
