@@ -45,6 +45,7 @@ export default function TemporaryDrawer() {
     <>
       <IconButton
         className={classes.drawerButton}
+        disableFocusRipple={true}
         aria-label="table-of-contents"
         onClick={toggleDrawer(true)}
       >
