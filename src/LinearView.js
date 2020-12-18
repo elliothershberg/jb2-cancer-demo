@@ -39,6 +39,8 @@ const assembly = {
   },
 }
 
+// 1. RefSeq hg19 ✅
+// 2. PacBio (SKBR3)
 const tracks = [
   {
     type: 'FeatureTrack',
@@ -46,42 +48,40 @@ const tracks = [
     name: 'NCBI RefSeq (GFF3Tabix)',
     assemblyNames: ['hg19'],
     category: ['Annotation'],
-    metadata: {
-      source: 'https://www.ncbi.nlm.nih.gov/genome/guide/human/',
-      dateaccessed: '12/03/2020',
-    },
     adapter: {
       type: 'Gff3TabixAdapter',
       gffGzLocation: {
         uri:
-          'https://s3.amazonaws.com/jbrowse.org/genomes/hg19/ncbi_refseq/GRCh37_latest_genomic.sort.gff.gz',
+          'https://s3.amazonaws.com/jbrowse.org/genomes/hg19/GRCh37_latest_genomic.sort.gff.gz',
       },
       index: {
         location: {
           uri:
-            'https://s3.amazonaws.com/jbrowse.org/genomes/hg19/ncbi_refseq/GRCh37_latest_genomic.sort.gff.gz.tbi',
+            'https://s3.amazonaws.com/jbrowse.org/genomes/hg19/GRCh37_latest_genomic.sort.gff.gz.tbi',
         },
       },
     },
   },
-  // {
-  //   "type": "AlignmentsTrack",
-  //   "trackId": "ngmlr",
-  //   "name": "SKBR3 pacbio (NGMLR)",
-  //   "assemblyNames": ["hg19"],
-  //   "category": ["SKBR3"],
-  //   "adapter": {
-  //     "type": "BamAdapter",
-  //     "bamLocation": {
-  //       "uri": "https://s3.amazonaws.com/jbrowse.org/genomes/hg19/reads_lr_skbr3.fa_ngmlr-0.2.3_mapped.bam"
-  //     },
-  //     "index": {
-  //       "location": {
-  //         "uri": "https://s3.amazonaws.com/jbrowse.org/genomes/hg19/reads_lr_skbr3.fa_ngmlr-0.2.3_mapped.bam.bai"
-  //       }
-  //     }
-  //   }
-  // },
+  {
+    type: 'AlignmentsTrack',
+    trackId: 'ngmlr',
+    name: 'SKBR3 pacbio (NGMLR)',
+    assemblyNames: ['hg19'],
+    category: ['SKBR3'],
+    adapter: {
+      type: 'BamAdapter',
+      bamLocation: {
+        uri:
+          'https://s3.amazonaws.com/jbrowse.org/genomes/hg19/reads_lr_skbr3.fa_ngmlr-0.2.3_mapped.bam',
+      },
+      index: {
+        location: {
+          uri:
+            'https://s3.amazonaws.com/jbrowse.org/genomes/hg19/reads_lr_skbr3.fa_ngmlr-0.2.3_mapped.bam.bai',
+        },
+      },
+    },
+  },
 ]
 
 const defaultSession = {
@@ -101,16 +101,26 @@ const defaultSession = {
           },
         ],
       },
-      // {
-      //   type: 'FeatureTrack',
-      //   configuration: 'ncbi_gff_hg19',
-      //   displays: [
-      //     {
-      //       type: 'LinearBasicDisplay',
-      //       configuration: 'ncbi_gff_hg19-LinearBasicDisplay',
-      //     },
-      //   ],
-      // },
+      {
+        type: 'FeatureTrack',
+        configuration: 'ncbi_gff_hg19',
+        displays: [
+          {
+            type: 'LinearBasicDisplay',
+            configuration: 'ncbi_gff_hg19-LinearBasicDisplay',
+          },
+        ],
+      },
+      {
+        type: 'AlignmentsTrack',
+        configuration: 'ngmlr',
+        displays: [
+          {
+            type: 'LinearAlignmentsDisplay',
+            configuration: 'ngmlr-LinearAlignmentsDisplay',
+          },
+        ],
+      },
     ],
   },
 }
