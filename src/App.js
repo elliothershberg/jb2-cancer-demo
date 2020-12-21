@@ -493,7 +493,8 @@ function Embed() {
             </a>{' '}
             which can be configured and embedded directly into a web page. In
             fact, you can see what it looks like when configured with SKBR3 data
-            directly below this section.
+            directly below this section. You can navigate to the locations of
+            the genes in the browser by clicking on them.
           </p>
           <p>
             Importantly, you don't have to be a React developer to add this

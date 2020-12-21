@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import 'fontsource-roboto'
 import {
   createViewState,
@@ -6,6 +6,8 @@ import {
   JBrowseLinearGenomeView,
   ThemeProvider,
 } from '@jbrowse/react-linear-genome-view'
+
+import GeneTable from './GeneTable'
 
 const theme = createJBrowseTheme()
 
@@ -127,16 +129,22 @@ const defaultSession = {
 }
 
 function LinearView() {
+  const [location, setLocation] = useState('')
+
   const state = createViewState({
     assembly,
     tracks,
-    location: '10:29,838,737..29,838,819',
+    location,
     defaultSession,
   })
+
   return (
-    <ThemeProvider theme={theme}>
-      <JBrowseLinearGenomeView viewState={state} />
-    </ThemeProvider>
+    <>
+      <GeneTable navTo={setLocation} />
+      <ThemeProvider theme={theme}>
+        <JBrowseLinearGenomeView viewState={state} />
+      </ThemeProvider>
+    </>
   )
 }
 
