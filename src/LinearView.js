@@ -40,7 +40,7 @@ const assembly = {
 }
 
 // 1. RefSeq hg19 ✅
-// 2. PacBio (SKBR3)
+// 2. PacBio (SKBR3) ✅
 const tracks = [
   {
     type: 'FeatureTrack',
@@ -65,19 +65,20 @@ const tracks = [
   {
     type: 'AlignmentsTrack',
     trackId: 'ngmlr',
-    name: 'SKBR3 pacbio (NGMLR)',
+    name: 'SKBR3 pacbio (NGMLR) 0.3 downsample',
     assemblyNames: ['hg19'],
     category: ['SKBR3'],
+    // switched to 0.3 downsample for performance
     adapter: {
       type: 'BamAdapter',
       bamLocation: {
         uri:
-          'https://s3.amazonaws.com/jbrowse.org/genomes/hg19/reads_lr_skbr3.fa_ngmlr-0.2.3_mapped.bam',
+          'https://s3.amazonaws.com/jbrowse.org/genomes/hg19/skbr3/reads_lr_skbr3.fa_ngmlr-0.2.3_mapped.down.bam',
       },
       index: {
         location: {
           uri:
-            'https://s3.amazonaws.com/jbrowse.org/genomes/hg19/reads_lr_skbr3.fa_ngmlr-0.2.3_mapped.bam.bai',
+            'https://s3.amazonaws.com/jbrowse.org/genomes/hg19/skbr3/reads_lr_skbr3.fa_ngmlr-0.2.3_mapped.down.bam.bai',
         },
       },
     },
