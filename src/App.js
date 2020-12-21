@@ -93,7 +93,12 @@ function Introduction() {
         aria-controls="introduction-content"
         id="introduction-header"
       >
-        <a className={classes.anchor} href="#introduction" name="introduction">
+        <a
+          className={classes.anchor}
+          href="#introduction"
+          name="introduction"
+          onClick={event => event.stopPropagation()}
+        >
           <LinkIcon />
         </a>
         <Typography className={classes.sectionHeader} variant="h3">
@@ -212,7 +217,12 @@ function GlobalView() {
         aria-controls="introduction-content"
         id="introduction-header"
       >
-        <a className={classes.anchor} href="#global-view" name="global-view">
+        <a
+          className={classes.anchor}
+          href="#global-view"
+          name="global-view"
+          onClick={event => event.stopPropagation()}
+        >
           <LinkIcon />
         </a>
         <Typography className={classes.sectionHeader} variant="h3">
@@ -297,7 +307,12 @@ function DrillingDown() {
         aria-controls="introduction-content"
         id="introduction-header"
       >
-        <a className={classes.anchor} href="#drilling-down" name="drilling-down">
+        <a
+          className={classes.anchor}
+          href="#drilling-down"
+          name="drilling-down"
+          onClick={event => event.stopPropagation()}
+        >
           <LinkIcon />
         </a>
         <Typography className={classes.sectionHeader} variant="h3">
@@ -394,7 +409,12 @@ function Sharing() {
         aria-controls="introduction-content"
         id="introduction-header"
       >
-        <a className={classes.anchor} href="#sharing" name="sharing">
+        <a
+          className={classes.anchor}
+          href="#sharing"
+          name="sharing"
+          onClick={event => event.stopPropagation()}
+        >
           <LinkIcon />
         </a>
         <Typography className={classes.sectionHeader} variant="h3">
@@ -444,7 +464,12 @@ function Embed() {
         aria-controls="introduction-content"
         id="introduction-header"
       >
-        <a className={classes.anchor} href="#embed" name="embed">
+        <a
+          className={classes.anchor}
+          href="#embed"
+          name="embed"
+          onClick={event => event.stopPropagation()}
+        >
           <LinkIcon />
         </a>
         <Typography className={classes.sectionHeader} variant="h3">
@@ -499,7 +524,12 @@ function Conclusion() {
         aria-controls="introduction-content"
         id="introduction-header"
       >
-        <a className={classes.anchor} href="#conclusion" name="conclusion">
+        <a
+          className={classes.anchor}
+          href="#conclusion"
+          name="conclusion"
+          onClick={event => event.stopPropagation()}
+        >
           <LinkIcon />
         </a>
         <Typography className={classes.sectionHeader} variant="h3">
