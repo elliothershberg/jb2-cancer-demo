@@ -77,7 +77,7 @@ export default function GeneTable(props) {
           target="_blank"
           rel="noreferrer"
         >
-          source
+          Data source
         </a>
         )
       </Typography>
