@@ -507,8 +507,16 @@ function Embed() {
               add React in one minute
             </a>{' '}
             to your website, by adding the necessary CDNs along with the JBrowse
-            component. We can't wait to see the awesome ways you use this
-            component!
+            component. The source code for the embedded view in this demo can be
+            found{' '}
+            <a
+              href="https://github.com/elliothershberg/jb2-cancer-demo/blob/main/src/LinearView.js"
+              target="_blank"
+              rel="noreferrer"
+            >
+              here
+            </a>
+            . We can't wait to see the awesome ways you use this component!
           </p>
         </div>
       </AccordionDetails>
